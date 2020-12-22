@@ -12,11 +12,11 @@
 // Data Types and Variables
 
 // Exercise 1. Simply declare a variable named 'emptyVariable'
-var emptyVariable;
+let emptyVariable;
 
 
 // Exercise 2. Declare a variable called 'myName'
-var myName;
+let myName;
 
 
 // Exercise 3. Assign your name as the value for 'myName'
@@ -26,14 +26,14 @@ myName = "Alex";
 // Exercise 4. Declare a variable called dreamDestination and give it the value
 // of what your dream vacation destination is.
 
-var dreamDestination = "Hawaii";
+let dreamDestination = "Hawaii";
 
 // Exercise 5. Make the following variables and assignments
 // - a variable called num1 with a value greater than 1 and less than 10
 // - a variable called num2 with a value of greater than or equal to 1 and less
 // than or equal to 10
-var num1 = 8;
-var num2 = 1;
+let num1 = 8;
+let num2 = 1;
 
 
 // Exercise 6. Write a comment below explaining the difference between the rules
@@ -53,13 +53,13 @@ console.log(num1);
 console.log(num2);
 // b. Make a new variable called 'theSum', and use 'num1' and
 // 'num2' to assign its value using the "+" operator.
-var theSum = num1 + num2;
+let theSum = num1 + num2;
 console.log(theSum);
 
 // Exercise 8. Now we will try some multiplication.
 // Make a new variable called 'theProduct', multiply num1 and num2 and assign
 // the resulting value to 'theProduct'.
-var theProduct = num1 * num2;
+let theProduct = num1 * num2;
 console.log(theProduct);
 
 // Exercise 9.
@@ -67,7 +67,7 @@ console.log(theProduct);
 // 'dreamDestination' and the concatenation method of your choice, make the
 // value of statement to be:
 // "Hi, my name is <your name>, and I can't wait to visit <your destination>!"
-var statement = "Hi, my name is " + myName + ", and I can't wait to visit " + dreamDestination + "!";
+let statement = "Hi, my name is " + myName + ", and I can't wait to visit " + dreamDestination + "!";
 console.log(statement);
 
 // *NOTE* For the following exercises, put your answers in the line below
@@ -132,7 +132,8 @@ const myAnswerForExercise22 = true;
 // Congrats, you made it to the end!
 // Did you find this easy or hard? If you used references, which ones helped you? 
 // Please answer in a comment below.
-//
+// Answer:
+// Most of the exercise were easy. Execises 14, 15, 16 and 22 - I had to test in the console to be sure about the answer. 
 
 // Email your file to the course staff, 
 // or commit your file to GitHub and email us a link.
