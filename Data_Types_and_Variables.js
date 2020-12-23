@@ -49,8 +49,7 @@ let num2 = 1;
 // a. Assign the the values of 4 and 6 to num1 and num2, respectively.
 num1 = 4;
 num2 = 6;
-console.log(num1);
-console.log(num2);
+
 // b. Make a new variable called 'theSum', and use 'num1' and
 // 'num2' to assign its value using the "+" operator.
 let theSum = num1 + num2;
