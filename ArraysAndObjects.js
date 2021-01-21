@@ -30,7 +30,7 @@ console.log(animals.length);
 console.log(animals[0]);
 
 // Exercise 7. Print the last item in the array (as part of your answer, use the same array property you used in exercise 5 above)
-console.log(animals.[animals.length - 1]);
+console.log(animals[animals.length - 1]);
 
 // Exercise 8. Remove the last item from the array
 animals.pop();
