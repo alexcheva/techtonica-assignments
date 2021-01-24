@@ -1,0 +1,35 @@
+1. How do you plan on exhibiting professionalism at Techtonica? What would be different in a full-time engineering job setting? 
+A: Trying not to make assumptions, be on time, let people know if I'm going to be late or absent, seek clarification when needed, try to figure things on my own before asking for help. Nothing would be different, apprenticeship is like a job.
+2. What would you do if you just found out you are going to be an hour late tomorrow morning?
+A: Let SEAM know ASAP.
+3. What would you do if you realized that you only had time to finish most of your work by the due date of a group project?
+A: Let everybody involved know that it's the case ASAP.
+4. Knowing yourself, what are the most effective ways for you to learn and retain new information?
+A: It is to see how it's done, and then repeat it myself. And of course, practice, practice, and more practice.
+5. What is growth mindset?
+A: It's the belief that intelligence is not set, and can be developed through struggle.
+6. Which operating system are you using right now? Name two other popular operating systems. Why do computers need operating systems?
+A: MacOS. Windows and Linux. The OS is the middle layer that connects hardware and software. It manages processes and tasks, the devices connected the computer and the network. 
+7. Explain what you would do if you felt stuck on a coding problem.
+A: Allow myself 15-20 minutes to research my problem and try to solve it, if that doesn't help ask someone for help.
+8. Describe the ways you plan on meeting and staying connected with new people in tech this month.
+A: I plan on attending a few online meetups as well as communicating on a various slack channels.
+9. Describe some examples of effective body language and what is communicated when they are used well.
+A: Smile and good posture - approachability and confidence.
+10. Describe some examples of effective word choice and what is communicated when they are used well.
+A: "I’m wondering if..." and "Maybe next time we can try ..." it doesn't seem like a personal attack and opens the floor for the opinions of others/dialogue. 
+11. How can you build trust in a team?
+A: Acknowledgement, honesty, authenticity and working towards a common goal.
+12. How are the devices on the internet physically connected to each other?
+A: Wires, Cables & Wifi
+13. How is information physically transmitted from device to device?
+A: Bits(binary information) in "packets" is transmitted through light, eletrcticity or radio waves. 
+14. How does one device find another it’s trying to communicate with?
+A: IP addresses(Internet Protocol) and DNS(Domain Name System).
+15. What methods do devices on the internet use to communicate?
+A: There are 3 Layers of communication: 1.HTTP & DNS. Manage sending and receiving of web files. Example: Browsers communicate with servers via URLs and HTTP requests(GET, POST, etc).
+2.TPC/IP & Routing. Breaks down the data and transport packets. Data we sent is broken up into “packets”. Routers direct packets and choose the routes. Packets can take different routes to the same destination. TCP arranges packets and ensures all of them were received correctly.
+3.Wires, Cables and WIFI. Physically send binary sequences. 
+16. How can we send data reliably even if the network is unreliable?
+A: TCP(Transmission Control Protocol) defines format of packets and ensures that all packets are received correctly.
+
