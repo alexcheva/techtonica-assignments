@@ -15,7 +15,7 @@ nav {
   font-family: 'Fredoka One', cursive;
 }
 
-a, a.navbar-brand, a.active{
+a {
   color: #b70d4e;
 }
 
