@@ -10,23 +10,41 @@
 </head>
 <body>
     <div class="container-fluid">
-        <!-- navbar code will go here (Step 4) -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Recipe page</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#top">Details<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#ingr">Ingredients</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#instr">Instructions</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
     </div>
     
     <div class="container">
-        <div class="row">
+        <div id="top" class="row">
             <div class="top col-xs-12 col-small-12 col-lg-12 ">
                 <h1>Easy No Bake Chocolate Macaroons</h1>
                 <p class="description">This recipe requires only 5 ingredients, doesn’t need any special equipment and takes less than 5 minutes to make. I love this dessert, because it's delicious and healthy. It’s vegan, gluten free, and uses no artificial sugars.</p>
             </div>
         </div>
         <div class="row">
-            <div class="left col col-xs-12 col-small-12 col-md-12 col-lg-6">
+            <div class="left col-xs-12 col-small-12 col-md-12 col-lg-6">
                 <div>
-                    <img class="img-fluid"src="https://blog.fablunch.com/wp-content/uploads/DSC_0074-1280x847.jpg" alt="Fablunch Chocolate Macaroons">
+                    <img class="img-fluid" src="https://blog.fablunch.com/wp-content/uploads/DSC_0074-1280x847.jpg" alt="Fablunch Chocolate Macaroons">
                     <p>Photo Credit <a href="http://blog.fablunch.com/easy-no-bake-chocolate-macaroons/" target="_blank">Fablunch</a>.</p>    
                 </div>
-                <div>
+                <div id="ingr">
                     <h2>Ingredients:</h2>
                     <ul>
                         <li>1 cup shredded unsweetened coconut</li>
@@ -38,8 +56,8 @@
                     </ul>
                 </div> 
             </div>
-            <div class='right col col-xs-12 col-small-12 col-md-12 col-lg-6'>
-                <div>
+            <div class='right col-xs-12 col-small-12 col-md-12 col-lg-6'>
+                <div id="instr">
                     <h2>Instructions:</h2>
                     <ol>
                         <li>Line a baking sheet with parchment paper or aluminium foil.</li>
@@ -52,7 +70,7 @@
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/tlQwqv2duDk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div>
+                <div id="links">
                     <h2>Similar recipes to try:</h2>
                     <p><a href="https://minimalistbaker.com/raw-double-chocolate-macaroons/" target="_blank">Raw Double Chocolate Macaroons</a></p>
                     <p><a href="https://www.food.com/recipe/raw-chocolate-macaroons-479113" target="_blank">Raw Chocolate Macaroons</a></p>
@@ -60,5 +78,7 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.0.0.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
