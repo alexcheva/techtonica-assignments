@@ -15,7 +15,9 @@ a{
 .description{
   /* max-width: 600px; */
 }
-
+.top{
+  padding-top: 5px;
+}
 .left{
   float: left;
   margin-top: 20px;
@@ -30,7 +32,9 @@ a{
   background-color: #f1f1f18c;
     padding: 10px 20px;
 } */
-
+.embed-responsive-16by9{
+  margin-bottom: 20px;
+}
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
   h1{
