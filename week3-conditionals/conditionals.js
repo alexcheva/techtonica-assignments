@@ -18,10 +18,11 @@ function movieNight(arr){
       result.push("David","Alex");
       //console.log(result);
     }
-    //if Ming goes, Priya will go
+    //if Ming goes, Priya will go and vise versa:
     if(person === "Ming" || person === "Priya"){
-      // result.push("Priya","Ming");
-      if(result.indexOf("Ming") === -1 || result.indexOf("Priya") === -1){
+      //if Ming and Priya are not in array already
+      if(result.indexOf("Ming") === -1 && result.indexOf("Priya") === -1){
+        //add them both
         result.push("Ming", "Priya");
       }
     }
@@ -45,7 +46,7 @@ function movieNight(arr){
   console.log(result);
   return result;
 }
-movieNight(['David', 'Breanna', 'Alex']);
+//movieNight(['David', 'Breanna', 'Alex']);
 //['David', 'Alex', 'Breanna']
 //movieNight(['Priya', 'David', 'Breanna']) 
 //['David', 'Alex', 'Breanna'] 
@@ -61,9 +62,9 @@ movieNight(['Priya', 'Breanna', 'Ming']);
 //['Priya', 'Ming', 'Breanna']
 //movieNight(['David', 'Alex', 'Ming']);
 //['David', 'Alex', 'Breanna']
-//movieNight(['Alex', 'Ming', 'Priya']);
+movieNight(['Alex', 'Ming', 'Priya']);
 //['Priya', 'Ming', 'Breanna']
-//movieNight(['David', 'Breanna', 'Ming']);
+movieNight(['David', 'Breanna', 'Ming']);
 //['David', 'Alex', 'Breanna']
-//movieNight(['Priya', 'David', 'Breanna']);
+movieNight(['Priya', 'David', 'Breanna']);
 //['David', 'Alex', 'Breanna']
