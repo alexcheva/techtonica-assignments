@@ -31,7 +31,12 @@ console.log("My BDay's Epoch time: ",myBDayDiff.getTime());
 // If you add (date1 + date2) or subtract (date1 - date2) two dates in JavaScript, it returns the time difference in milliseconds. 
 //Can you write a function to subtract two dates but return the time difference in minutes? 
 //What about as a date object?
-// function substractDates(date1,date2){
-//   console.log((date1 - date2));
-// }
-// substractDates(today,myBDay);
+function substractDates(date1,date2){
+  let result = date1 - date2;
+  console.log(result);
+  console.log("Result in minutes:", (result/60000));
+  let dateObj = new Date(result);
+  console.log((dateObj));
+  
+}
+substractDates(today,myBDay);
