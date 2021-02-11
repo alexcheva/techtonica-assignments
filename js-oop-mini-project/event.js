@@ -16,6 +16,28 @@ class Event {
     });
     return result;
   }
+  searchTickets(min,max){
+    let result = "Eligible tickets: ";
+    let count = 0;
+    // eventObj3.searchTickets(0, 250) and will return the string: Eligible tickets: 1. Balcony ($100) 2. Mezzanine ($200) for that particular call. If no tickets are available in that range, it will instead return: No tickets available.
+    // for(let i=0; i<this.availableTickets.length; i++){
+    //   let ticket = this.availableTickets[i];
+    //   if(ticket.price >= min && ticket.price <= max){
+    //     count += 1;
+    //     result += `${count}. ${ticket.name} ($${ticket.price}) `;
+    //   }
+    // }
+    this.availableTickets.filter(ticket => {
+      if(ticket.price >= min && ticket.price <= max){
+        count += 1;
+        result += `${count}. ${ticket.name} ($${ticket.price}) `;
+      }
+    });
+    if(result === "Eligible tickets: "){
+      result = "No tickets available.";
+    }
+    return result;
+  }
 }
 console.log(Event.addAvailableTickets);
 class TicketType {
@@ -50,14 +72,13 @@ eventObj3.addAvailableTickets("Orchestra", 300)
 eventObj3.addAvailableTickets("Mezzanine", 200)
 eventObj3.addAvailableTickets("Balcony", 100)
 
-
-console.log(eventObj3);
+console.log(eventObj3.searchTickets(0, 250));
 
 
 $(document).ready(function () {
   let html = '';
   $.each(eventArray, function (index, item) {
-    html += `<li>${item.name} - ${item.description} - ${item.allTickets()}</li>`;
+    html += `<li>${item.name} - ${item.description} - ${item.searchTickets(0, 100)}</li>`;
   });
   // insert final html into #event...
   $('#event').html(html);
