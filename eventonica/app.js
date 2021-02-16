@@ -1,7 +1,8 @@
 class Eventonica {
   
-  addEvent() {
+  addEvent(name, category, location, date, time, price) {
     // Adds a new Event
+    new Event(name, category, location, date, time, price);
   }
 
   updateEvent(id) {
@@ -10,6 +11,14 @@ class Eventonica {
 
   deleteEvent(id) {
     // Deletes Event
+    //find the event with .id === id
+    //remove it from the Event.all
+    for(let i=0; i<Event.all.length; i++){
+      if(Event.all[i].id === id){
+        Event.all.splice(i,1);
+      }
+    }
+    // Event.all = Event.all.filter(event => event.id !== id);
   }
 
   findEventsByDate(date) {
