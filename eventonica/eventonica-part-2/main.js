@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // change, add, or remove any events.
   const refreshEventsList = () => {
     document.querySelector("#events-list").innerHTML = Event.all
-      .map((event) => `<li><strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
+      .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
       .join("\n");
   };
   refreshEventsList();
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //handle users:
   const refreshUsersList = () =>{
     document.querySelector("#users-list").innerHTML = User.all
-      .map((user) => `<li><strong>${user.username}</strong> - ${user.firstName} ${user.lastName} - ${user.email}</li>`)
+      .map((user) => `<li>${user.id} - <strong>${user.username}</strong> - ${user.firstName} ${user.lastName} - ${user.email}</li>`)
       .join("\n");
   };
   refreshUsersList();
@@ -49,8 +49,30 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshUsersList();
     addUserForm.reset();
   });
-
+  //Delete User
+  const deleteUserForm = document.querySelector("#delete-user");
+  deleteUserForm.addEventListener('submit', (submitEvent) => {
+    submitEvent.preventDefault();
+    const deleteUserId = parseInt(document.querySelector("#delete-user-id").value);
+    app.deleteUser(deleteUserId);
+    console.log("User is deleted.");
+    refreshUsersList();
+    deleteUserForm.reset();
+  });
+  //Delete Event:
+  const deleteEventForm = document.querySelector("#delete-event");
+  deleteEventForm.addEventListener('submit', (submitEvent) => {
+    submitEvent.preventDefault();
+    const deleteEventId = parseInt(document.querySelector("#delete-event-id").value);
+    app.deleteEvent(deleteEventId);
+    console.log("Event is deleted.");
+    refreshEventsList();
+    deleteEventForm.reset();
+  });
 });
 
 new Event("HIM", "concert", "The UC Theatre", "05-12-2021", "18:00 PM", 55);
+new Event("POD", "concert", "The UC Theatre", "10-21-2021", "19:30 PM", 35);
 new User("alexpeach", "alex@peach.com", "Alex", "Peach");
+new User("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
+new User("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
