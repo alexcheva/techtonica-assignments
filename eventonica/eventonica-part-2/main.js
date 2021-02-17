@@ -19,7 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
   addEventForm.addEventListener("submit", (submitEvent) => {
     submitEvent.preventDefault();
     const name = document.querySelector("#add-event-name").value;
-    const event = app.addEvent(name);
+    const category = document.querySelector("#event-category").value;
+    const location = document.querySelector("#event-location").value;
+    const date = document.querySelector("#event-date").value;
+    const time = document.querySelector("#event-time").value;
+    const price = document.querySelector("#event-price").value;
+    const event = app.addEvent(name, category, location, date, time, price);
     console.log("Added event", event);
     refreshEventsList();
     addEventForm.reset();
