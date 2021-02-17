@@ -13,13 +13,6 @@ class Eventonica {
 
   deleteEvent(id) {
     // Deletes Event
-    //find the event with .id === id
-    //remove it from the Event.all
-    // for(let i=0; i<Event.all.length; i++){
-    //   if(Event.all[i].id === id){
-    //     Event.all.splice(i,1);
-    //   }
-    // }
     Event.all = Event.all.filter(event => event.id !== id);
   }
 
@@ -38,16 +31,10 @@ class Eventonica {
     new User(username, email, firstName, lastName);
   }
 
-  updateUser(id, username, email, firstName, lastName) {
+  updateUser(id, property, change) {
     // Update existing User
-    User.all = User.all.map(user => {
-      if(user.id === id){
-        user.username = username;
-        user.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-      }
-    });
+    let index = User.all.map(user => user.id).indexOf(id);
+    User.all[index][property] = change;
   }
 
   deleteUser(id) {
@@ -117,4 +104,6 @@ eventonica.addEvent("POD", "concert", "UCT", new Date('12 July 2021'), "18:00 PM
 //console.log(Event.all)
 eventonica.updateEvent(100, "time", "18:00 PM");
 //eventonica.deleteEvent(101);
-console.log(Event.all)
+// console.log(Event.all)
+eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
+console.log(User.all)
