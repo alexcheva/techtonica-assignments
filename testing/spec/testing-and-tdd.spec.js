@@ -1,7 +1,5 @@
-const testingTdd = require('../src/testing-and-tdd.js');
-const countWords = function (sentence) {
-  return sentence.split(' ').length;
-};
+const countWords = require('../src/testing-and-tdd.js');
+
 describe('countWords', function () {
   it('should count a single word', function () {
     expect(countWords('a')).toBe(1);

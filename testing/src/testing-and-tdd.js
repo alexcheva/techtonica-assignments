@@ -3,4 +3,4 @@ const countWords = function (sentence) {
 };
 console.log(countWords('brown fox jumped over lazy dog'));
 
-module.exports = testingTdd;
+module.exports = countWords;
