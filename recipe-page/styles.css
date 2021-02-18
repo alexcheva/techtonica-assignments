@@ -17,7 +17,7 @@ nav {
   font-family: 'Fredoka One', cursive;
 }
 
-a {
+a, a:hover {
   color: #b70d4e;
 }
 

@@ -1,3 +1,4 @@
+const testingTdd = require('../src/testing-and-tdd.js');
 const countWords = function (sentence) {
   return sentence.split(' ').length;
 };
