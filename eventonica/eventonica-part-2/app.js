@@ -4,11 +4,14 @@ class Eventonica {
     // Adds a new Event
     new Event(name, category, location, date, time, price);
   }
+  
+  getEvent(id){
+    return Event.all.filter(event => event.id === id)[0];
+  }
 
   updateEvent(id, property, change) {
     // Update existing Event
-    let index = Event.all.map(event => event.id).indexOf(id);
-    Event.all[index][property] = change;
+    this.getEvent(id)[property] = change;
   }
 
   deleteEvent(id) {
@@ -30,16 +33,37 @@ class Eventonica {
     // Adds a new User
     new User(username, email, firstName, lastName);
   }
+  
+  getUser(userId){
+    return User.all.filter(user => user.id === userId)[0];
+  }
 
   updateUser(id, property, change) {
     // Update existing User
-    let index = User.all.map(user => user.id).indexOf(id);
-    User.all[index][property] = change;
+    this.getUser(id)[property] = change;
   }
 
   deleteUser(id) {
     // Deletes User
     User.all = User.all.filter(user => user.id !== id);
+  }
+
+  favoriteUserEvent(userId,eventId){
+    this.getUser(userId).favoriteEvents.push(eventId);
+    // User.all.map(user => {
+    //   if(user.id === userId){
+    //     user.favoriteEvents.push(eventId);
+    //   }
+    // });
+  }
+  removeFavoriteUserEvent(userId,eventId){
+    let user = this.getUser(userId);
+    user.favoriteEvents = user.favoriteEvents.filter(eventIds => eventIds !== eventId);
+    // User.all.map(user => {
+    //   if(user.id === userId){
+    //     user.favoriteEvents = user.favoriteEvents.filter(eventIds => eventIds !== eventId);
+    //   }
+    // });
   }
 }
 
@@ -73,7 +97,6 @@ class Event {
 class User {
   static all = [];
   static _nextId = 200;
-  static favoriteEvents = [];
 
   constructor(username, email, firstName, lastName) {
     this.id = User._nextId++;
@@ -82,13 +105,10 @@ class User {
     this.email = email;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.favoriteEvents = [];
     User.all.push(this); // keep track of all created instances
   }
 }
-// Favorite Events
-// A User can favorite an Event
-// A User can unfavorite an Event
-// A User can view their list of previously favorite events
 
 //make a user
 //make events
@@ -106,4 +126,13 @@ eventonica.updateEvent(100, "time", "18:00 PM");
 //eventonica.deleteEvent(101);
 // console.log(Event.all)
 eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
-console.log(User.all)
+eventonica.addUser("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
+eventonica.addUser("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
+
+eventonica.updateUser(200, "email", "alex@gmail.com");
+console.log(eventonica.getUser(200));
+// console.log(User.all)
+// eventonica.favoriteUserEvent(202,101);
+// console.log(eventonica.getUser(202));
+// eventonica.removeFavoriteUserEvent(202,101);
+// console.log(eventonica.getUser(202));

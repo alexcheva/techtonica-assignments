@@ -5,10 +5,13 @@ class Eventonica {
     new Event(name, category, location, date, time, price);
   }
 
+  getEvent(id){
+    return Event.all.filter(event => event.id === id)[0];
+  }
+
   updateEvent(id, property, change) {
     // Update existing Event
-    let index = Event.all.map(event => event.id).indexOf(id);
-    Event.all[index][property] = change;
+    this.getEvent(id)[property] = change;
   }
 
   deleteEvent(id) {
@@ -31,15 +34,31 @@ class Eventonica {
     new User(username, email, firstName, lastName);
   }
 
+  getUser(userId){
+    return User.all.filter(user => user.id === userId)[0];
+  }
+
   updateUser(id, property, change) {
     // Update existing User
-    let index = User.all.map(user => user.id).indexOf(id);
-    User.all[index][property] = change;
+    this.getUser(id)[property] = change;
   }
 
   deleteUser(id) {
     // Deletes User
     User.all = User.all.filter(user => user.id !== id);
+  }
+
+  getUser(userId){
+    return User.all.filter(user => user.id === userId)[0];
+  }
+
+  addFavUserEvent(userId,eventId){
+    this.getUser(userId).favoriteEvents.push(eventId);
+  }
+
+  removeFavUserEvent(userId,eventId){
+    let user = this.getUser(userId);
+    user.favoriteEvents = user.favoriteEvents.filter(eventIds => eventIds !== eventId);
   }
 }
 class Event {
@@ -54,7 +73,6 @@ class Event {
     this.date = date;
     this.time = time;
     this.price = price;
-    // decide what properties are required
     Event.all.push(this); // keep track of all created instances
   }
 
@@ -81,6 +99,7 @@ class User {
     this.email = email;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.favoriteEvents = [];
     User.all.push(this); // keep track of all created instances
   }
 }
