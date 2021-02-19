@@ -18,13 +18,20 @@ class Eventonica {
     // Deletes Event
     Event.all = Event.all.filter(event => event.id !== id);
   }
+  findEvents(date,category){
+    if(date !== "" && category !== ""){
+      return Event.all.filter(event=>event.date === date && event.category === category);
+    }else{
+      return Event.all.filter(event=>event.date === date || event.category === category);
+    }
 
+  }
   findEventsByDate(date) {
     // Return items in Event.all with a specified date
     return Event.all.filter(event=>event.date === date);
   }
 
-  findEventsbyCategory(category) {
+  findEventsByCategory(category) {
     // Return items in Event.all with a specified category
     return Event.all.filter(event=>event.category === category);
   }

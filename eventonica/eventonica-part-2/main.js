@@ -69,10 +69,45 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshEventsList();
     deleteEventForm.reset();
   });
+  //Filter Events
+  const searchResultsH3 = document.createElement("h3")
+  searchResultsH3.innerText = "Search Results:";
+  const searchToolbar = document.querySelector(".search-toolbar");
+  const filterEventForm = document.querySelector("#search");
+  const filterEventsUl = document.querySelector("#filtered-events-list")
+  const refreshFilteredEventsList = (array) => {
+    filterEventsUl.parentElement.prepend(searchResultsH3);
+    console.log(array);
+    if(array.length === 0){
+      filterEventsUl.innerHTML = `<li><em>Sorry, no events found!</em></li>`;
+    }else{
+      filterEventsUl.innerHTML = array
+      .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
+      .join("\n");
+    }
+    
+  };
+  //Filter events:
+  filterEventForm.addEventListener('submit', (submitEvent) => {
+    submitEvent.preventDefault();
+    const dateInput = document.querySelector("#date-search").value;
+    const categoryInput = document.querySelector("#category-search").value;
+    let filteredEvents = app.findEvents(dateInput,categoryInput);
+    // if( dateInput !== "" || categoryInput !== ""){
+    //   filteredEvents = app.findEvents(dateInput,categoryInput);
+    //   console.log(dateInput,categoryInput);
+    // }
+    console.log("Events:",filteredEvents);
+    refreshFilteredEventsList(filteredEvents);
+    filterEventForm.reset();
+  });
+  
 });
 
 new Event("HIM", "concert", "The UC Theatre", "05-12-2021", "18:00 PM", 55);
 new Event("POD", "concert", "The UC Theatre", "10-21-2021", "19:30 PM", 35);
+new Event("Christian Rave", "gathering", "Church", "03-19-2021", "17:30 PM", 0);
+
 new User("alexpeach", "alex@peach.com", "Alex", "Peach");
 new User("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
 new User("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
