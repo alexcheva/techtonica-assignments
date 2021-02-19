@@ -1,27 +1,42 @@
 const { Eventonica, User, Event } = require('../models.js'); // Update with your class names and file name
 let er = new Eventonica(); 
-
+er.addEvent("HIM", "concert", "The UC Theatre", "05-12-2021", "18:00 PM", 55);
+er.addEvent("POD", "concert", "The UC Theatre", "10-21-2021", "19:30 PM", 35);
+er.addEvent("Christian Rave", "gathering", "Church", "03-19-2021", "17:30 PM", 0);
+er.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
 
 describe("Eventonica", () => {
 
-  beforeEach(() => {
-    er = new Eventonica();
-  });
+  // beforeEach(() => {
+  //   er = new Eventonica();
+  // });
 
   describe("addEvent", () => {
     it("adds a new Event to the system", () => {
-      er.addEvent("HIM", "concert", "The UC Theatre", "05-12-2021", "18:00 PM", 55);
-      expect(Event.all.length).toEqual(1);
+      expect(Event.all.length).toEqual(3);
       expect(Event.all[0].name).toEqual("HIM");
     });
   });
+  describe("findEventsByDate", () => {
+    it("find all Events that match a date", () => {
+      expect(er.findEventsByDate("05-12-2021").length).toEqual(1);
+      expect(er.findEventsByDate("05-12-2021")[0].name).toEqual("HIM");
+    });
+  });
+  describe("findEventsByCategory", () => {
+    it("find all Events that match a category", () => {
+      expect(er.findEventsByCategory("concert").length).toEqual(2);
+      expect(er.findEventsByCategory("concert")[0].name).toEqual("HIM");
+      expect(er.findEventsByCategory("concert")[1].name).toEqual("POD");
+    });
+  });
 
-  // describe("addUser", () => {
-  //   it("adds a new User to the system", () => {
-  //     er.addUser("Change Me");
-  //     expect(er.user.length).toEqual(1);
-  //   });
-  // });
+  describe("updateUser", () => {
+    it("updates a User in the system", () => {
+      er.updateUser(200, "email", "alex@gmail.com");
+      expect(User.all[0].email).toEqual("alex@gmail.com");
+    });
+  });
 
   // describe("saveUserEvent", () => {
   //   it("adds an event to a user's personal event array", () => {
