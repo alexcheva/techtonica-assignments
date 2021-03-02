@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Eventonica</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="./calendar.png" />
+    <script defer src="models.js"></script>
+    <script defer src="main.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <img src="./calendar.png" alt="Calendar Star Logo" />
+      <h1>Eventonica</h1>
+    </header>
+
+    <main>
+      <div class="user-and-events">
+        <section class="event-management">
+          <h2>Event Management</h2>
+          <div>
+            <h3>All Events</h3>
+            <ul id="events-list">
+              <!-- Display all Events here -->
+              <li>...</li>
+            </ul>
+            <!-- ADD NEW EVENT -->
+            <h3>Add Event</h3>
+            <form id="add-event" action="#">
+              <fieldset>
+                <label>Name:</label>
+                <input
+                  type="text"
+                  id="add-event-name"
+                  placeholder="Event Name"
+                />
+                <label for="event-category">Category:</label>
+                <input type="text" id="event-category" placeholder="Event Category" />
+
+                <label for="event-location">Location:</label>
+                <input type="text" id="event-location" placeholder="Location" />
+
+                <label for="event-date">Date:</label>
+                <input type="text" id="event-date" placeholder="MM-DD-YYYY" />
+              
+                <label for="event-time">Time:</label>
+                <input type="text" id="event-time" placeholder="HH-MM" />
+
+                <label for="event-price">Price:</label>
+                <input type="text" id="event-price" placeholder="0.00" />
+              </fieldset>
+              <input type="submit" />
+            </form>
+          </div>
+          <!-- DELETE EVENT FORM-->
+          <div>
+            <h3>Delete Event</h3>
+            <form id="delete-event" action="#">
+              <fieldset>
+                <label>Event ID</label>
+                <input type="number" min="1" id="delete-event-id" />
+              </fieldset>
+              <input type="submit" />
+            </form>
+          </div>
+          <!-- END DELETE EVENT FORM-->
+        </section>
+
+        <section class="user-management">
+          <h2>User Management</h2>
+
+          <ul id="users-list">
+            <!-- display all existing Users here -->
+            <li>...</li>
+          </ul>
+        <!-- ADD NEW USER FORM -->
+          <div>
+            <h3>Add User</h3>
+            <form id="add-user" action="#">
+              <fieldset>
+                <label>Username:</label>
+                <input type="text" id="add-username" />
+              </fieldset>
+              <fieldset>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname">
+              </fieldset>
+              <fieldset>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname">
+              </fieldset>
+              <fieldset>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+              </fieldset>
+              <input type="submit" value="Add" />
+            </form>
+          </div>
+          <!-- END ADD NEW USER FORM-->
+          <!-- DELETE USER FORM -->
+          <div>
+            <h3>Delete User</h3>
+            <form id="delete-user" action="#">
+              <fieldset>
+                <label>User ID</label>
+                <input type="text" id="delete-user-id" />
+              </fieldset>
+              <input type="submit" />
+            </form>
+          </div>
+          <!-- END DELETE USER FORM -->
+        </section>
+      </div>
+
+      <aside class="search-toolbar">
+        <div>
+          <h3>Find Events</h3>
+          <form id="search" action="#">
+            <fieldset>
+              <label for="date-search">Date</label>
+              <input type="text" id="date-search" placeholder="MM-DD-YYYY" />
+            </fieldset>
+            <fieldset>
+              <label for="category-search">Category</label>
+              <input type="text" id="category-search" />
+            </fieldset>
+            <input type="submit" value="Search" />
+          </form>
+        </div>
+        <div>
+          <ul id="filtered-events-list">
+            <!-- display all filtered events here -->
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>
+        Star Calendar favicon made by
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+          >Freepik</a
+        >
+        Find your own on
+        <a href="https://www.flaticon.com/" title="Flaticon">FlatIcon.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
