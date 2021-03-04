@@ -1,21 +1,34 @@
-// const { Eventonica, User, Event } = require('/models.js'); 
+const models = require('./models'); 
 
-// const eventonica = new Eventonica();
-// console.log(eventonica);
+const eventonica = new models.Eventonica();
+//console.log(eventonica);
 
-const { query } = require('express');
+// const user1 = eventonica.addUser("Alex", "email", "firstName", "lastName");
+// console.log(models.User.all);
+
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser');
 
-//app.set('view engine','html');
+const app = express();
+//body parser
+app.use(bodyParser.urlencoded({ extended: false}));
+
 app.use(express.static(__dirname + '/'));
 //routes:
 app.get('/', (req,res) =>{
   res.render('index');
 });
-app.get('/users/:id', (req,res) =>{
-  res.send(req.params.id);
-  //res.render("card", { prompt: "wassup", hint: "sup", colors: colors});
+app.route('/users/:id').get((req,res) =>{
+  let user_id = req.params.id;
+  let status = 400;
+  let response = 'Unable to find user data!';
+  users.forEach((user) => {
+    if (user['id'] == user_id) {
+      res.status(200).send(user);
+    }
+  });
+  res.status(status).send(response);
+
 });
 app.get('/events/:category', (req,res) =>{
   res.send(req.params.category);
@@ -24,6 +37,15 @@ app.get('/events/:category?sortBy=date', (req,res) =>{
   //res.send(req.params);
   res.send(query);
 });
+//POST
+app.post('/addEvent', (req,res)=>{
+  console.dir(req);
+  res.send("Event Added");
+})
+app.post('/addUser', (req,res)=>{
+  res.send("User Added");
+ // res.render('hello', { name: req.body.username });
+})
 app.listen(8000, ()=> {
   console.log("The application is running on the localhost:8000.")
 });

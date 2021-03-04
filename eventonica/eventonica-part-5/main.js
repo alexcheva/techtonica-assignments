@@ -14,10 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("\n");
   };
   refreshEventsList();
+  //Add event 
   const addEventForm = document.querySelector("#add-event");
   // Handle add event form submit by calling our instance of Eventonica, `app`
   addEventForm.addEventListener("submit", (submitEvent) => {
-    submitEvent.preventDefault();
+    //submitEvent.preventDefault();
     const name = document.querySelector("#add-event-name").value;
     const category = document.querySelector("#event-category").value;
     const location = document.querySelector("#event-location").value;
@@ -37,9 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("\n");
   };
   refreshUsersList();
+  //ADD USER
   const addUserForm = document.querySelector("#add-user");
   addUserForm.addEventListener("submit", (submitEvent) => {
-    submitEvent.preventDefault();
+    //submitEvent.preventDefault();
     const username = document.querySelector("#add-username").value;
     const email = document.querySelector("#email").value;
     const firstName = document.querySelector("#fname").value;
