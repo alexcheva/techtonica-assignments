@@ -128,7 +128,7 @@ eventonica.updateEvent(100, "time", "18:00 PM");
 eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
 eventonica.addUser("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
 eventonica.addUser("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
-
+console.log(User.all);
 eventonica.updateUser(200, "email", "alex@gmail.com");
 console.log(eventonica.getUser(200));
 // console.log(User.all)

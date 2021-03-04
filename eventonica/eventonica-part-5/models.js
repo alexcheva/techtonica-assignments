@@ -52,6 +52,8 @@ class Eventonica {
 
   deleteUser(id) {
     // Deletes User
+    //this.getUser(id);
+    //User.all.filter(user => user.id === id).length
     User.all = User.all.filter(user => user.id !== id);
   }
 
@@ -113,3 +115,11 @@ class User {
 if (typeof module !== "undefined") {
   module.exports = { Eventonica, User, Event };
 }
+
+let eventonica = new Eventonica();
+eventonica.addEvent("HIM", "concert", "UCT", "05-12-2021", "12:00 PM", 55);
+eventonica.addEvent("POD", "concert", "UCT", "10-21-2021", "18:00 PM", 55);
+
+eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
+eventonica.addUser("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
+eventonica.addUser("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");

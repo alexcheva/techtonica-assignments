@@ -1,5 +1,4 @@
 const models = require('./models'); 
-
 const eventonica = new models.Eventonica();
 //console.log(eventonica);
 
@@ -30,6 +29,10 @@ app.route('/users/:id').get((req,res) =>{
   res.status(status).send(response);
 
 });
+app.get('/getAllEvents', (req,res) =>{
+  res.send(models.Event.all);
+});
+
 app.get('/events/:category', (req,res) =>{
   res.send(req.params.category);
 });
@@ -43,9 +46,28 @@ app.post('/addEvent', (req,res)=>{
   res.send("Event Added");
 })
 app.post('/addUser', (req,res)=>{
-  res.send("User Added");
- // res.render('hello', { name: req.body.username });
+  let newUser = req.body;
+  //console.log(newUser);
+  eventonica.addUser(req.body.username, req.body.email, req.body.fname, req.body.lname);
+  console.log(models.User.all);
+  res.status(200).send("User added!");
+});
+app.route('/deleteUser/:id').delete((req, res) => {
+  let user_id = req.params.id;
+  let status = 200;
+  let response = "";
+  try{
+    //let num = 1/0;
+    eventonica.deleteUser(user_id);
+    response = models.User.all;
+    } catch (error) {
+      status = 400;
+      response = "Unable to find user data!";
+    }
+ // console.log(response);
+  res.status(status).send(response);
 })
+
 app.listen(8000, ()=> {
   console.log("The application is running on the localhost:8000.")
 });

@@ -5,7 +5,7 @@
     <title>Eventonica</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="shortcut icon" href="./calendar.png" />
-    <script type="module" defer src="models.js"></script>
+    <script defer src="models.js"></script>
     <script defer src="main.js"></script>
   </head>
 
@@ -77,10 +77,10 @@
         <!-- ADD NEW USER FORM -->
           <div>
             <h3>Add User</h3>
-            <form id="add-user"  action="/addUser" method="POST">
+            <form id="add-user" action="/addUser" method="POST">
               <fieldset>
                 <label>Username:</label>
-                <input type="text" id="add-username" />
+                <input type="text" id="add-username" name="username"/>
               </fieldset>
               <fieldset>
                 <label for="fname">First name:</label>

@@ -4,15 +4,23 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // Use this to call all the logic we already created
-  const app = new Eventonica();
+  //const app = new Eventonica();
 
   // Builds HTML list for all event. You must call this function after you
   // change, add, or remove any events.
   const refreshEventsList = () => {
-    document.querySelector("#events-list").innerHTML = Event.all
-      .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
-      .join("\n");
-  };
+    fetch('/getAllEvents')
+    .then(response => response.json())
+    .then(data => document.querySelector("#events-list").innerHTML = data
+    .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
+    .join("\n"));
+  }
+
+  // const refreshEventsList = () => {
+  //   document.querySelector("#events-list").innerHTML = data
+  //     .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
+  //     .join("\n");
+  // };
   refreshEventsList();
   //Add event 
   const addEventForm = document.querySelector("#add-event");
