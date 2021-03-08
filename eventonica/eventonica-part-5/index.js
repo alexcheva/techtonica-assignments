@@ -50,17 +50,12 @@ app.get('/events/:category?sortBy=date', (req,res) => {
   //res.send(req.params);
   res.send(query);
 });
-//POST:
-app.route('/addEvent').post((req,res) => {
-  eventonica.addEvent(req.body.name, req.body.category, req.body.location, req.body.date, req.body.time, req.body.price);
-  
+//POST
+app.post('/addEvent', (req,res) => {
+  eventonica.addEvent(req.body.name, req.body.category ,req.body.location, req.body.date, req.body.time, req.body.price);
   console.log(models.Event.all);
-  res.status(200).redirect(301, '/');
+  res.status(200).send("Event added!");
 })
-//   .get((req,res) => {
-//   res.redirect(301, '/');
-// });
-
 app.post('/addUser', (req,res) => {
   eventonica.addUser(req.body.username, req.body.email, req.body.fname, req.body.lname);
   console.log(models.User.all);
