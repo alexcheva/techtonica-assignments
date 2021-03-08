@@ -14,10 +14,15 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static(__dirname + '/'));
 //routes:
-app.get('/', (req,res) =>{
+app.route('/').get((req,res) => {
   res.render('index');
+}).post((req,res)=>{
+  eventonica.addEvent(req.body.name, req.body.category, req.body.location, req.body.date, req.body.price);
+  res.render('index');
+  console.log(models.Event.all);
 });
-app.route('/users/:id').get((req,res) =>{
+
+app.route('/users/:id').get((req,res) => {
   let user_id = req.params.id;
   let status = 400;
   let response = 'Unable to find user data!';
@@ -29,45 +34,77 @@ app.route('/users/:id').get((req,res) =>{
   res.status(status).send(response);
 
 });
-app.get('/getAllEvents', (req,res) =>{
+
+app.get('/getAllEvents', (req,res) => {
   res.send(models.Event.all);
 });
+app.get('/getAllUsers', (req,res) => {
+  res.send(models.User.all);
+});
 
-app.get('/events/:category', (req,res) =>{
+app.get('/events/:category', (req,res) => {
   res.send(req.params.category);
 });
-app.get('/events/:category?sortBy=date', (req,res) =>{
+
+app.get('/events/:category?sortBy=date', (req,res) => {
   //res.send(req.params);
   res.send(query);
 });
-//POST
-app.post('/addEvent', (req,res)=>{
-  console.dir(req);
-  res.send("Event Added");
+//POST:
+app.route('/addEvent').post((req,res) => {
+  eventonica.addEvent(req.body.name, req.body.category, req.body.location, req.body.date, req.body.price);
+  
+  console.log(models.Event.all);
+  res.status(200).send("Event added!");
 })
-app.post('/addUser', (req,res)=>{
-  let newUser = req.body;
-  //console.log(newUser);
+  .get((req,res) => {
+  res.redirect(301, '/');
+});
+
+app.post('/addUser', (req,res) => {
   eventonica.addUser(req.body.username, req.body.email, req.body.fname, req.body.lname);
   console.log(models.User.all);
   res.status(200).send("User added!");
 });
+//DELETE:
 app.route('/deleteUser/:id').delete((req, res) => {
   let user_id = req.params.id;
   let status = 200;
   let response = "";
-  try{
-    //let num = 1/0;
+  if(eventonica.getUser(user_id)){
     eventonica.deleteUser(user_id);
     response = models.User.all;
-    } catch (error) {
+    }else{
       status = 400;
       response = "Unable to find user data!";
     }
  // console.log(response);
   res.status(status).send(response);
-})
+});
 
-app.listen(8000, ()=> {
+app.route('/deleteEvent/:id').delete((req, res) => {
+  let event_id = req.params.id;
+  let status = 200;
+  let response = "";
+  if(eventonica.getEvent(event_id)){
+    eventonica.deleteEvent(event_id);
+    response = models.Event.all;
+    }else{
+      status = 400;
+      response = "Unable to find Event data!";
+    }
+ // console.log(response);
+  res.status(status).send(response);
+});
+//UPDATE:
+app.route('/updateUser/:id').put((req,res) =>{
+  eventonica.updateUser(req.params.id, property, change);
+});
+
+app.route('/updateEvent/:id').put((req,res) => {
+  eventonica.updateEvent(req.params.id, property, change);
+});
+
+app.listen(8000, () => {
   console.log("The application is running on the localhost:8000.")
 });

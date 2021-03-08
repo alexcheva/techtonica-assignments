@@ -57,10 +57,6 @@ class Eventonica {
     User.all = User.all.filter(user => user.id !== id);
   }
 
-  getUser(userId){
-    return User.all.filter(user => user.id === userId)[0];
-  }
-
   addFavUserEvent(userId,eventId){
     this.getUser(userId).favoriteEvents.push(eventId);
   }
