@@ -42,11 +42,12 @@ app.get('/events/:category?sortBy=date', (req,res) =>{
 });
 //POST
 app.post('/addEvent', (req,res)=>{
-  console.dir(req);
-  res.send("Event Added");
+  eventonica.addEvent(req.body.name, req.body.category ,req.body.location, req.body.date, req.body.time, req.body.price);
+  console.log(models.Event.all);
+  res.status(200).send("Event added!");
 })
 app.post('/addUser', (req,res)=>{
-  let newUser = req.body;
+  //let newUser = req.body;
   //console.log(newUser);
   eventonica.addUser(req.body.username, req.body.email, req.body.fname, req.body.lname);
   console.log(models.User.all);

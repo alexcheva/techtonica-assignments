@@ -118,6 +118,6 @@ new Event("HIM", "concert", "The UC Theatre", "05-12-2021", "18:00 PM", 55);
 new Event("POD", "concert", "The UC Theatre", "10-21-2021", "19:30 PM", 35);
 new Event("Christian Rave", "gathering", "Church", "03-19-2021", "17:30 PM", 0);
 
-new User("alexpeach", "alex@peach.com", "Alex", "Peach");
-new User("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
-new User("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
+// new User("alexpeach", "alex@peach.com", "Alex", "Peach");
+// new User("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
+// new User("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
