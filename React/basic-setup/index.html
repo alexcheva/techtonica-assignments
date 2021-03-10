@@ -32,8 +32,15 @@
         render() {  
           //Inside render() you’ll return a description of what you want React to draw on the page.
          // return <h1>Hello {this.props.message}!</h1>;  
-          return <h1>Hello {this.state.message}!</h1>;  
+          //return <h1>Hello {this.state.message}!</h1>;  
           //The reason we’re writing {this.props.message} with curly braces is because we need to tell the JSX that we want to add a JavaScript expression. This is called escaping.
+          return (  
+            <div>  
+              <h1>Hello {this.state.message}!</h1>  
+              <button onClick={this.updateMessage}>Click me!</button>  
+            </div>     
+          )  
+          // Here, we’re hooking an event listener onto the button, listening for the onClick event. When this is triggered, we call the updateMessage method.
         }  
       }
       //To get our application to render on the screen, we also have to use ReactDOM.render():
