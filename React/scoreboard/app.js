@@ -1,18 +1,22 @@
 const players = [  {
   name: "Guil",
-  score: 50
+  score: 50,
+  id: 1
 },
 {
   name: "Treasure",
-  score: 85
+  score: 85,
+  id: 2
 },
 {
   name: "Ashley",
-  score: 95
+  score: 95,
+  id: 3
 },
 {
   name: "James",
-  score: 80
+  score: 80,
+  id: 4
 }];
 const Header = (props) => {
   return (
@@ -56,6 +60,7 @@ const App = (props) => {
         <Player 
           name= {player.name}
           score = {player.score}
+          key={player.id.toString()}
         />
         )
       }
