@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- This is where our entire app will live. -->
+    <div id="root"></div>
+    <script type="text/babel">
+    // Everything in React is a component, and these usually take the form of JavaScript classes. You create a component by extending upon the React-Component class. Let’s create a component called Hello:
+      class Hello extends React.Component {  
+        //method:
+        render() {  
+          //Inside render() you’ll return a description of what you want React to draw on the page.
+            return <h1>Hello world!</h1>;  
+        }  
+      }
+      //To get our application to render on the screen, we also have to use ReactDOM.render():
+      ReactDOM.render(  
+        //This is where we connect our Hello component with the entry point for the app <div id="root"></div>.
+          <Hello />,   
+          document.getElementById("root")
+            // Render the Hello component inside the DOM node with an id of root!
+      );
+
+    </script>
+  </body>
+</html>
