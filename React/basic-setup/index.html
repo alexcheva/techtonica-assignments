@@ -10,11 +10,30 @@
     <script type="text/babel">
     // Everything in React is a component, and these usually take the form of JavaScript classes. You create a component by extending upon the React-Component class. Let’s create a component called Hello:
       class Hello extends React.Component {  
+        //Initializing state
+        // To initialize the state, simply set this.state  in the constructor() method of the class. Our state is an object which in our case only has one key called message.
+        constructor(){
+          //Before we set the state, we have to call super() in the constructor. This is because this is uninitialized before super() has been called.
+          super();
+          this.state = {
+            message: 'my friend (from state)!'
+          };
+          this.updateMessage = this.updateMessage.bind(this);
+        }
+        //Changing the state
+        // To modify the state, simply call this.setState(), passing in the new state object as the argument. We’ll do this inside a method which we’ll call updateMessage.
+        //Note: To make this work, we also had to bind the this keyword to the updateMessage method. Otherwise we couldn’t have accessed this in the method.
+        updateMessage(){
+          this.setState({
+            message: "my friend (from changed state)!"
+          });
+        }
         //method:
         render() {  
           //Inside render() you’ll return a description of what you want React to draw on the page.
-            return <h1>Hello {this.props.message}!</h1>;  
-            //The reason we’re writing {this.props.message} with curly braces is because we need to tell the JSX that we want to add a JavaScript expression. This is called escaping.
+         // return <h1>Hello {this.props.message}!</h1>;  
+          return <h1>Hello {this.state.message}!</h1>;  
+          //The reason we’re writing {this.props.message} with curly braces is because we need to tell the JSX that we want to add a JavaScript expression. This is called escaping.
         }  
       }
       //To get our application to render on the screen, we also have to use ReactDOM.render():
