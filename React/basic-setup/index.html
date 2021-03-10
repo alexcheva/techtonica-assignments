@@ -13,13 +13,15 @@
         //method:
         render() {  
           //Inside render() you’ll return a description of what you want React to draw on the page.
-            return <h1>Hello world!</h1>;  
+            return <h1>Hello {this.props.message}!</h1>;  
+            //The reason we’re writing {this.props.message} with curly braces is because we need to tell the JSX that we want to add a JavaScript expression. This is called escaping.
         }  
       }
       //To get our application to render on the screen, we also have to use ReactDOM.render():
       ReactDOM.render(  
         //This is where we connect our Hello component with the entry point for the app <div id="root"></div>.
-          <Hello />,   
+          <Hello message="my friend" />,   
+          // This prop is called message and has the value “my friend”. We can access this prop inside the Hello component by referencing this.props.message
           document.getElementById("root")
             // Render the Hello component inside the DOM node with an id of root!
       );
