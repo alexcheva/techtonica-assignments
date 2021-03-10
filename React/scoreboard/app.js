@@ -1,15 +1,7 @@
 // object representation of the DOM node
-const title = React.createElement(
-  'h1',
-  { id: 'main-title', title: 'This is a title.'},
-  'My First React Element!'
-);
+const title = <h1>My First React Element!</h1>;
 
-const desc = React.createElement(
-  'p',
-  null,
-  'I just learned how to create a React node and render it into the DOM'
-);
+const desc = <p>I just learned how to create a React node and render it into the DOM</p>;
 const header = React.createElement(
   'header',
   //no properties specified
