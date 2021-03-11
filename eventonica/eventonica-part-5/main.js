@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(res => res.text()) // or res.json()
     .then(res => console.log(res))
-    console.log("Event is deleted.");
+    //console.log("Event is deleted.");
     refreshEventsList();
     deleteEventForm.reset();
   });
