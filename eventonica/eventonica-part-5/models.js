@@ -6,6 +6,7 @@ class Eventonica {
   }
 
   getEvent(id){
+    id = parseInt(id);
     return Event.all.filter(event => event.id === id)[0];
   }
 
@@ -16,6 +17,7 @@ class Eventonica {
 
   deleteEvent(id) {
     // Deletes Event
+    id = parseInt(id);
     Event.all = Event.all.filter(event => event.id !== id);
   }
   findEvents(date,category){
@@ -42,7 +44,7 @@ class Eventonica {
   }
 
   getUser(userId){
-    return User.all.filter(user => user.id === userId)[0];
+    return User.all.filter(user => user.id === parseInt(userId))[0];
   }
 
   updateUser(id, property, change) {
@@ -52,9 +54,10 @@ class Eventonica {
 
   deleteUser(id) {
     // Deletes User
+    
     //this.getUser(id);
     //User.all.filter(user => user.id === id).length
-    User.all = User.all.filter(user => user.id !== id);
+    User.all = User.all.filter(user => user.id !== parseInt(id));
   }
 
   addFavUserEvent(userId,eventId){
@@ -115,7 +118,7 @@ if (typeof module !== "undefined") {
 let eventonica = new Eventonica();
 eventonica.addEvent("HIM", "concert", "UCT", "05-12-2021", "12:00 PM", 55);
 eventonica.addEvent("POD", "concert", "UCT", "10-21-2021", "18:00 PM", 55);
-
+console.log(Event.all);
 eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
 eventonica.addUser("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
 eventonica.addUser("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");

@@ -84,6 +84,7 @@ app.route('/deleteUser/:id').delete((req, res) => {
 
 app.route('/deleteEvent/:id').delete((req, res) => {
   let event_id = req.params.id;
+  console.log(event_id);
   let status = 200;
   let response = "";
   if(eventonica.getEvent(event_id)){
