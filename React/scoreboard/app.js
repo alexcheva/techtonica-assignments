@@ -51,7 +51,7 @@ class Counter extends React.Component{
   };
   // ^^ but not supported in all browsers, however with babel is okay
 
-  incrementScore() {
+  incrementScore = () => {
     this.setState({
       score: this.state.score + 1
     });
@@ -61,7 +61,7 @@ class Counter extends React.Component{
       <div className="counter">
         <button className="counter-action decrement"> - </button>
         <span className="counter-score">{ this.state.score }</span>
-        <button className="counter-action increment" onClick={ () => this.incrementScore() }> + </button>
+        <button className="counter-action increment" onClick={ this.incrementScore }> + </button>
       </div>
     );
   }
