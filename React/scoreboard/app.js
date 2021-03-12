@@ -52,15 +52,15 @@ class Counter extends React.Component{
   // ^^ but not supported in all browsers, however with babel is okay
 
   incrementScore = () => {
-    this.setState({
-      score: this.state.score + 1
-    });
+    this.setState(prevState => ({
+      score: prevState.score + 1
+    }));
   }
   decrementScore = () => {
-    this.setState({
-      score: this.state.score - 1
-    });
-  }
+    this.setState(prevState => ({
+      score: prevState.score - 1
+    }));
+  } 
   render() {
     return (
       <div className="counter">
