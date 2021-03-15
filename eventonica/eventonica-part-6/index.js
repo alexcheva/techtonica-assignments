@@ -8,8 +8,18 @@ const eventonica = new models.Eventonica();
 const express = require('express');
 const bodyParser = require('body-parser');
 const pgp = require('pg-promise')(/* options */);
-const db = pgp('postgres://localhost:8000/eventonica');
+const db = pgp('postgres://localhost:5432/eventonica');
 
+//Example adding user to the database:
+// db.none('INSERT INTO users (username, firstname, lastname, email) VALUES ($1, $2, $3, $4)', ['MrTestington', 'Test', 'Testington' , 'test@usertest.com'])
+//     .then(() => {
+//         // success;
+//         console.log('SUCCESS: User is added to the database')
+//     })
+//     .catch(error => {
+//         // error;
+//         console.log('ERROR:', error)
+//     });
 // db.one('SELECT $1 AS value', 123)
 //   .then(function (data) {
 //     console.log('DATA:', data.value)
@@ -24,10 +34,10 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static(__dirname + '/'));
 //routes:
-app.get('/', (req,res) =>{
+app.get('/', (req,res) => {
   res.render('index');
 });
-app.route('/users/:id').get((req,res) =>{
+app.route('/users/:id').get((req,res) => {
   let user_id = req.params.id;
   let status = 400;
   let response = 'Unable to find user data!';
@@ -39,29 +49,30 @@ app.route('/users/:id').get((req,res) =>{
   res.status(status).send(response);
 
 });
-app.get('/getAllEvents', (req,res) =>{
+app.get('/getAllEvents', (req,res) => {
   res.send(models.Event.all);
 });
 
-app.get('/events/:category', (req,res) =>{
+app.get('/events/:category', (req,res) => {
   res.send(req.params.category);
 });
-app.get('/events/:category?sortBy=date', (req,res) =>{
+app.get('/events/:category?sortBy=date', (req,res) => {
   //res.send(req.params);
   res.send(query);
 });
 //POST
-app.post('/addEvent', (req,res)=>{
+app.post('/addEvent', (req,res) => {
   eventonica.addEvent(req.body.name, req.body.category ,req.body.location, req.body.date, req.body.time, req.body.price, null);
   console.log(models.Event.all);
   res.status(200).send("Event added!");
 })
-app.post('/addUser', (req,res)=>{
+app.post('/addUser', (req,res) => {
   //let newUser = req.body;
   //console.log(newUser);
   eventonica.addUser(req.body.username, req.body.fname, req.body.lname, req.body.email);
+  // eventonica.addUser(res.body).then(() => res.sendStatus(204));
   console.log(models.User.all);
-  res.status(200).send("User added!");
+  res.status(204).send("User added!");
 });
 app.route('/deleteUser/:id').delete((req, res) => {
   let user_id = req.params.id;
