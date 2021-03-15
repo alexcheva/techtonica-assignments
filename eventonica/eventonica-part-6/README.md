@@ -52,3 +52,20 @@ Create fav_events table:
                         REFERENCES users(id)
                         );
 `
+
+Insert test users:
+`INSERT INTO users (username, firstname, lastname, email) VALUES ('alexpeach', 'Alex', 'Peach', 'alex@peach.com');`
+`INSERT INTO users (username, firstname, lastname, email) VALUES ('tomCruize', 'Tom', 'Cruiz', 'tom@tomcruize.com');`
+`INSERT INTO users (username, firstname, lastname, email) VALUES('dickTracy', 'Richard', 'Tracy', 'dickTracy@gmail.com');`
+
+Insert test events:
+`INSERT INTO events (name, category, location, date, time, price, user_created) VALUES ('HIM', 'concert', 'UCT', '05-12-2021', '12:00 PM', 55, 2);`
+`INSERT INTO events (name, category, location, date, time, price, user_created) VALUES ('POD', 'concert', 'UCT', '10-21-2021', '06:00 PM', 55, 2);`
+`INSERT INTO events (name, category, location, date, time, price, user_created) VALUES ('Christian Rave', 'gathering', 'Church', '03-19-2021', '17:30', 0, 2);`
+
+Insert test fav_events:
+
+`INSERT INTO fav_events (event_id, user_id) VALUES (3, 3);`
+`INSERT INTO fav_events (event_id, user_id) VALUES (1, 2);`
+`INSERT INTO fav_events (event_id, user_id) VALUES (2, 2);`
+
