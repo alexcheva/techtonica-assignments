@@ -1,17 +1,17 @@
 
-const pgp = require('pg-promise')(/* options */);
-const db = pgp('postgres://localhost:5432/eventonica');
+// const pgp = require('pg-promise')(/* options */);
+// const db = pgp('postgres://localhost:5432/eventonica');
 class Eventonica {
   
   addEvent(name, category, location, date, time, price, user_created = 2) {
     // Adds a new Event
-   // new Event(name, category, location, date, time, price, user_created);
-   db.none('INSERT INTO events (name, category, location, date, time, price, user_created) values ($2,$3,$4,$5,$6,$7,$8)').then(data => {
-      console.log(data.id); // print new user id;
-  })
-  .catch(error => {
-      console.log('ERROR:', error); // print error;
-  });
+   new Event(name, category, location, date, time, price, user_created);
+  //  db.none('INSERT INTO events (name, category, location, date, time, price, user_created) values ($2,$3,$4,$5,$6,$7,$8)').then(data => {
+  //     console.log(data.id); // print new user id;
+  // })
+  // .catch(error => {
+  //     console.log('ERROR:', error); // print error;
+  // });
   }
 
   getEvent(id){

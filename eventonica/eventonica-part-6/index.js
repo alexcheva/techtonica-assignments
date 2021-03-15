@@ -1,7 +1,8 @@
 const models = require('./models'); 
 const eventonica = new models.Eventonica();
 //console.log(eventonica);
-
+const { I_LOVE } = require('./config');
+console.log("I love ", I_LOVE);
 // const user1 = eventonica.addUser("Alex", "email", "firstName", "lastName");
 // console.log(models.User.all);
 
