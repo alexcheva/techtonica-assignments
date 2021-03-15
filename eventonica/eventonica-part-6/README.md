@@ -81,3 +81,8 @@ Insert test fav_events:
 
 `INSERT INTO fav_events (event_id, user_id) VALUES (2, 2);`
 
+Install pg-promise in your project folder:
+
+`$ npm install pg-promise`
+
+ - this module connects your Express application to a Postgres database.

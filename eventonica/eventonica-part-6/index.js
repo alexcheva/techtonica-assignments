@@ -7,6 +7,16 @@ const eventonica = new models.Eventonica();
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const pgp = require('pg-promise')(/* options */);
+const db = pgp('postgres://localhost:8000/eventonica');
+
+// db.one('SELECT $1 AS value', 123)
+//   .then(function (data) {
+//     console.log('DATA:', data.value)
+//   })
+//   .catch(function (error) {
+//     console.log('ERROR:', error)
+//   });
 
 const app = express();
 //body parser
