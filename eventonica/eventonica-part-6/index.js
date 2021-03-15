@@ -52,14 +52,14 @@ app.get('/events/:category?sortBy=date', (req,res) =>{
 });
 //POST
 app.post('/addEvent', (req,res)=>{
-  eventonica.addEvent(req.body.name, req.body.category ,req.body.location, req.body.date, req.body.time, req.body.price);
+  eventonica.addEvent(req.body.name, req.body.category ,req.body.location, req.body.date, req.body.time, req.body.price, null);
   console.log(models.Event.all);
   res.status(200).send("Event added!");
 })
 app.post('/addUser', (req,res)=>{
   //let newUser = req.body;
   //console.log(newUser);
-  eventonica.addUser(req.body.username, req.body.email, req.body.fname, req.body.lname);
+  eventonica.addUser(req.body.username, req.body.fname, req.body.lname, req.body.email);
   console.log(models.User.all);
   res.status(200).send("User added!");
 });

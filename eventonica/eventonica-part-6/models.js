@@ -1,8 +1,8 @@
 class Eventonica {
   
-  addEvent(name, category, location, date, time, price) {
+  addEvent(name, category, location, date, time, price, user_created = 2) {
     // Adds a new Event
-    new Event(name, category, location, date, time, price);
+    new Event(name, category, location, date, time, price, user_created);
   }
 
   getEvent(id){
@@ -36,9 +36,9 @@ class Eventonica {
     return Event.all.filter(event=>event.category === category);
   }
 
-  addUser(username, email, firstName, lastName) {
+  addUser(username, firstName, lastName, email) {
     // Adds a new User
-    new User(username, email, firstName, lastName);
+    new User(username, firstName, lastName, email);
   }
 
   getUser(userId){
@@ -74,7 +74,7 @@ class Event {
   static all = [];
   static _nextId = 100;
 
-  constructor(name, category, location, date, time, price) {
+  constructor(name, category, location, date, time, price, user_created) {
     this.id = Event._nextId++;
     this.name = name;
     this.category = category;
@@ -82,6 +82,7 @@ class Event {
     this.date = date;
     this.time = time;
     this.price = price;
+    this.user_created = user_created;
     Event.all.push(this); // keep track of all created instances
   }
 
@@ -101,12 +102,12 @@ class User {
   static _nextId = 200;
   static favoriteEvents = [];
 
-  constructor(username, email, firstName, lastName) {
+  constructor(username, firstName, lastName, email) {
     this.id = User._nextId++;
     this.username = username;
-    this.email = email;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.email = email;
     this.favoriteEvents = [];
     User.all.push(this); // keep track of all created instances
   }
