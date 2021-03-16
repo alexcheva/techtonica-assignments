@@ -1,6 +1,7 @@
 
-// const pgp = require('pg-promise')(/* options */);
-// const db = pgp('postgres://localhost:5432/eventonica');
+const pgp = require('pg-promise')(/* options */);
+const db = pgp('postgres://localhost:5432/eventonica');
+
 class Eventonica {
   
   addEvent(name, category, location, date, time, price, user_created = 2) {
@@ -48,6 +49,15 @@ class Eventonica {
   addUser(username, firstName, lastName, email) {
     // Adds a new User
     new User(username, firstName, lastName, email);
+    // db.none('INSERT INTO users (username, firstname, lastname, email) VALUES ($1, $2, $3, $4)', [username, firstName, lastName, email])
+    // .then(() => {
+    //     // success
+    //     console.log('SUCCESS: User is added to the database')
+    // })
+    // .catch(error => {
+    //     // error
+    //     console.log('ERROR:', error)
+    // });
   }
 
   getUser(userId){
@@ -133,3 +143,4 @@ eventonica.addEvent("POD", "concert", "UCT", "10-21-2021", "18:00 PM", 55);
 eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
 eventonica.addUser("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
 eventonica.addUser("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
+console.log(User.all)

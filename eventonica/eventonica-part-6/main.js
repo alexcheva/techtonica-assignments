@@ -10,21 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // change, add, or remove any events.
   const refreshEventsList = () => {
     fetch('/getAllEvents')
-    .then(response => response.json())
-    .then(data => document.querySelector("#events-list").innerHTML = data
-    .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
-    .join("\n"));
-  }
+      .then(response => response.json())
+      .then(data => document.querySelector("#events-list").innerHTML = data
+        .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
+        .join("\n"));
+  };
 
-  // const refreshEventsList = () => {
-  //   document.querySelector("#events-list").innerHTML = data
-  //     .map((event) => `<li>${event.id} - <strong>${event.name}</strong> - ${event.category} - <em>${event.location}</em> - ${event.date}, ${event.time}, price:  $${event.price}.</li>`)
-  //     .join("\n");
-  // };
   refreshEventsList();
   //Add event 
   const addEventForm = document.querySelector("#add-event");
-  // Handle add event form submit by calling our instance of Eventonica, `app`
+  // Handle add event form submit 
   addEventForm.addEventListener("submit", (submitEvent) => {
     //submitEvent.preventDefault();
     const name = document.querySelector("#add-event-name").value;
@@ -38,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshEventsList();
     addEventForm.reset();
   });
-
   //handle users:
-  const refreshUsersList = () =>{
-    document.querySelector("#users-list").innerHTML = User.all
-      .map((user) => `<li>${user.id} - <strong>${user.username}</strong> - ${user.firstName} ${user.lastName} - ${user.email}</li>`)
-      .join("\n");
+  const refreshUsersList = () => {
+    fetch('/getAllUsers')
+    .then(response => response.json())
+    .then(data => document.querySelector("#users-list").innerHTML = data.map((user) => `<li>${user.id} - <strong>${user.username}</strong> - ${user.firstName} ${user.lastName} - ${user.email}</li>`)
+      .join("\n"));
   };
   refreshUsersList();
   //ADD USER
@@ -114,9 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
 });
 
-new Event("HIM", "concert", "The UC Theatre", "05-12-2021", "18:00 PM", 55);
-new Event("POD", "concert", "The UC Theatre", "10-21-2021", "19:30 PM", 35);
-new Event("Christian Rave", "gathering", "Church", "03-19-2021", "17:30 PM", 0);
+// new Event("HIM", "concert", "The UC Theatre", "05-12-2021", "18:00 PM", 55);
+// new Event("POD", "concert", "The UC Theatre", "10-21-2021", "19:30 PM", 35);
+// new Event("Christian Rave", "gathering", "Church", "03-19-2021", "17:30 PM", 0);
 
 // new User("alexpeach", "alex@peach.com", "Alex", "Peach");
 // new User("tomCruise", "me@tomcruise.com", "Tom", "Cruise");

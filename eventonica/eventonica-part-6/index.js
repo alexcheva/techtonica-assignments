@@ -1,15 +1,16 @@
 const models = require('./models'); 
 const eventonica = new models.Eventonica();
 //console.log(eventonica);
-const { I_LOVE } = require('./config');
+const { MY_NAME, I_LOVE } = require('./config');
+console.log("My name is", MY_NAME);
 console.log("I love ", I_LOVE);
 // const user1 = eventonica.addUser("Alex", "email", "firstName", "lastName");
 // console.log(models.User.all);
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const pgp = require('pg-promise')(/* options */);
-const db = pgp('postgres://localhost:5432/eventonica');
+// const pgp = require('pg-promise')(/* options */);
+// const db = pgp('postgres://localhost:5432/eventonica');
 
 //Example adding user to the database:
 // db.none('INSERT INTO users (username, firstname, lastname, email) VALUES ($1, $2, $3, $4)', ['MrTestington', 'Test', 'Testington' , 'test@usertest.com'])
@@ -52,6 +53,10 @@ app.route('/users/:id').get((req,res) => {
 });
 app.get('/getAllEvents', (req,res) => {
   res.send(models.Event.all);
+});
+
+app.get('/getAllUsers', (req,res) => {
+  res.send(models.User.all);
 });
 
 app.get('/events/:category', (req,res) => {
