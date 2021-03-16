@@ -1,6 +1,6 @@
 
-const pgp = require('pg-promise')(/* options */);
-const db = pgp('postgres://localhost:5432/eventonica');
+// const pgp = require('pg-promise')(/* options */);
+// const db = pgp('postgres://localhost:5432/eventonica');
 
 class Eventonica {
   

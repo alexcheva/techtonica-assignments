@@ -1,9 +1,8 @@
 const models = require('./models'); 
 const eventonica = new models.Eventonica();
 //console.log(eventonica);
-const { MY_NAME, I_LOVE } = require('./config');
-console.log("My name is", MY_NAME);
-console.log("I love ", I_LOVE);
+// const { I_LOVE } = require('./config');
+// console.log("I love ", I_LOVE);
 // const user1 = eventonica.addUser("Alex", "email", "firstName", "lastName");
 // console.log(models.User.all);
 
@@ -96,6 +95,6 @@ app.route('/deleteUser/:id').delete((req, res) => {
   res.status(status).send(response);
 })
 
-app.listen(8000, ()=> {
+app.listen(8080, ()=> {
   console.log("The application is running on the localhost:8000.")
 });
