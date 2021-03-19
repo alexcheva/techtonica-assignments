@@ -3,13 +3,9 @@ const eventonica = new models.Eventonica();
 //console.log(eventonica);
 // const { I_LOVE } = require('./config');
 // console.log("I love ", I_LOVE);
-// const user1 = eventonica.addUser("Alex", "email", "firstName", "lastName");
-// console.log(models.User.all);
-
+//require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-// const pgp = require('pg-promise')(/* options */);
-// const db = pgp('postgres://localhost:5432/eventonica');
 
 //Example adding user to the database:
 // db.none('INSERT INTO users (username, firstname, lastname, email) VALUES ($1, $2, $3, $4)', ['MrTestington', 'Test', 'Testington' , 'test@usertest.com'])
@@ -96,5 +92,5 @@ app.route('/deleteUser/:id').delete((req, res) => {
 })
 
 app.listen(8080, ()=> {
-  console.log("The application is running on the localhost:8000.")
+  console.log("The application is running on the localhost:8080.")
 });

@@ -1,6 +1,6 @@
-
-// const pgp = require('pg-promise')(/* options */);
-// const db = pgp('postgres://localhost:5432/eventonica');
+require('dotenv').config();
+const pgp = require('pg-promise')({});
+const db = pgp(process.env.DB_CONNECTION);
 
 class Eventonica {
   
@@ -48,16 +48,16 @@ class Eventonica {
 
   addUser(username, firstName, lastName, email) {
     // Adds a new User
-    new User(username, firstName, lastName, email);
-    // db.none('INSERT INTO users (username, firstname, lastname, email) VALUES ($1, $2, $3, $4)', [username, firstName, lastName, email])
-    // .then(() => {
-    //     // success
-    //     console.log('SUCCESS: User is added to the database')
-    // })
-    // .catch(error => {
-    //     // error
-    //     console.log('ERROR:', error)
-    // });
+   // new User(username, firstName, lastName, email);
+    db.none('INSERT INTO users (username, firstname, lastname, email) VALUES ($1, $2, $3, $4)', [username, firstName, lastName, email])
+    .then(() => {
+        // success
+        console.log('SUCCESS: User is added to the database')
+    })
+    .catch(error => {
+        // error
+        console.log('ERROR:', error)
+    });
   }
 
   getUser(userId){
@@ -136,11 +136,11 @@ if (typeof module !== "undefined") {
   module.exports = { Eventonica, User, Event };
 }
 
-let eventonica = new Eventonica();
-eventonica.addEvent("HIM", "concert", "UCT", "05-12-2021", "12:00 PM", 55);
-eventonica.addEvent("POD", "concert", "UCT", "10-21-2021", "18:00 PM", 55);
+// let eventonica = new Eventonica();
+// eventonica.addEvent("HIM", "concert", "UCT", "05-12-2021", "12:00 PM", 55);
+// eventonica.addEvent("POD", "concert", "UCT", "10-21-2021", "18:00 PM", 55);
 
-eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
-eventonica.addUser("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
-eventonica.addUser("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
-console.log(User.all)
+// eventonica.addUser("alexpeach", "alex@peach.com", "Alex", "Peach");
+// eventonica.addUser("tomCruise", "me@tomcruise.com", "Tom", "Cruise");
+// eventonica.addUser("dickTracy", "dickTracy@gmail.com", "Richard", "Tracy");
+// console.log(User.all)
